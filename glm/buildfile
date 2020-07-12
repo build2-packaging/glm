@@ -1,0 +1,10 @@
+lib{glm}: $src_upstream/glm/hxx{**.hpp **.h} $src_upstream/glm/ixx{**.inl}
+{
+  cxx.export.poptions =+ "-I$src_upstream"
+}
+
+../upstream/
+{
+  hxx{*}: install.subdirs = true
+  ixx{*}: install.subdirs = true
+}
