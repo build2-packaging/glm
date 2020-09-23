@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 //
 #include <glm/mat4x4.hpp>
@@ -5,8 +6,6 @@
 #include <glm/vec4.hpp>
 //
 #include <glm/gtc/matrix_transform.hpp>
-//
-#include <glm/gtx/string_cast.hpp>
 
 glm::mat4 camera(float Translate, glm::vec2 const& Rotate) {
   glm::mat4 Projection =
@@ -20,6 +19,10 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate) {
 }
 
 int main() {
+  using namespace std;
   glm::mat4 cam = camera(1.0f, glm::vec2{1.0f, 2.0f});
-  std::cout << glm::to_string(cam) << '\n';
+  for (int i = 0; i < 4; ++i) {
+    for (int j = 0; j < 4; ++j) cout << setw(15) << cam[i][j];
+    cout << '\n';
+  }
 }
