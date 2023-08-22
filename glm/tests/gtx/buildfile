@@ -1,0 +1,5 @@
+for x : cxx{* -gtx_random -gtx_simd_vec4 -gtx_simd_mat4}
+{
+  n = $name($x)
+  ./: exe{$n}: $x $lib
+}

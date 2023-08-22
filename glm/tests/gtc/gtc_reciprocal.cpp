@@ -1,0 +1,1 @@
+../../../upstream/test/gtc/gtc_reciprocal.cpp

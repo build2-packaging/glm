@@ -1,13 +1,5 @@
-./: {*/ -build/} manifest
+import pkgs = {*/ -*-tests/ -upstream/}
+import tests = {*-tests/}
 
-tests/: install = false
-
-upstream/
-{
-  ./: doc/ doc{*.md copying.txt}
-  doc/
-  {
-    install.subdirs = true
-    ./: doc{**}
-  }
-}
+./: $pkgs
+./: $tests: install = false

@@ -2,6 +2,7 @@
 !*/
 
 !upstream
+!glm/glm
 
 !*.hpp
 !*.cpp
@@ -10,9 +11,10 @@
 !bootstrap.build
 !root.build
 !export.build
-!manifest
+!*manifest
+!*testscript
 
-!README.md
+!*.md
+!copying.txt
 
-!.gitignore
-!.gitmodules
+!.git*

@@ -1,0 +1,5 @@
+for x : cxx{* -gtc_user_defined_types}
+{
+  n = $name($x)
+  ./: exe{$n}: $x $lib
+}

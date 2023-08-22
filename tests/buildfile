@@ -1,3 +1,0 @@
-import libs = glm%lib{glm}
-
-./: exe{main}: cxx{main} $libs

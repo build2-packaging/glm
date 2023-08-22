@@ -1,10 +1,10 @@
-lib{glm}: $src_upstream/glm/hxx{**.hpp **.h} $src_upstream/glm/ixx{**.inl}
+./: lib{glm}: glm/{h hxx ixx}{**}
 {
-  cxx.export.poptions =+ "-I$src_upstream"
+  cxx.export.poptions =+ "-I$src_root"
 }
 
-../upstream/
-{
-  hxx{*}: install.subdirs = true
-  ixx{*}: install.subdirs = true
-}
+{h hxx ixx}{*}: install.subdirs = true
+
+./: tests/: install = false
+
+./: manifest legal{copying.txt} doc{*.md}

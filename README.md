@@ -1,19 +1,39 @@
-<h1 align="center">
-    build2 Package for GLM
-</h1>
+# build2 Package for GLM
 
-<p align="center">
-    This project builds and defines the build2 package for the OpenGL Mathematics (GLM) header-only C++ library for graphics software based on OpenGL Shading Language (GLSL) specifications.
-</p>
+This project builds and defines the build2 package for [GLM](https://github.com/g-truc/glm), also known as the OpenGL Mathematics (GLM) header-only C++ library for graphics software based on OpenGL Shading Language (GLSL) specifications.
 
-<p align="center">
-    <a href="https://cppget.org/glm">
-        <img src="https://img.shields.io/website/https/cppget.org/glm.svg?down_message=offline&label=cppget.org&style=for-the-badge&up_color=blue&up_message=online">
-    </a>
-    <a href="https://queue.cppget.org/glm">
-        <img src="https://img.shields.io/website/https/queue.cppget.org/glm.svg?down_message=empty&down_color=blue&label=queue.cppget.org&style=for-the-badge&up_color=orange&up_message=running">
-    </a>
-</p>
+[![Official](https://img.shields.io/website/https/github.com/richgel999/miniz.svg?down_message=offline&label=Official&style=for-the-badge&up_color=blue&up_message=online)](https://github.com/g-truc/glm)
+[![build2](https://img.shields.io/website/https/github.com/build2-packaging/miniz.svg?down_message=offline&label=build2&style=for-the-badge&up_color=blue&up_message=online)](https://github.com/build2-packaging/glm)
+[![cppget.org](https://img.shields.io/website/https/cppget.org/glm.svg?down_message=offline&label=cppget.org&style=for-the-badge&up_color=blue&up_message=online)](https://cppget.org/glm)
+[![queue.cppget.org](https://img.shields.io/website/https/queue.cppget.org/glm.svg?down_message=empty&down_color=blue&label=queue.cppget.org&style=for-the-badge&up_color=orange&up_message=running)](https://queue.cppget.org/glm)
+
+## Usage
+Make sure to add the stable or alpha section of the `cppget.org` repository to your project's `repositories.manifest` to be able to fetch this package.
+
+    :
+    role: prerequisite
+    location: https://pkg.cppget.org/1/stable
+    # trust: ...
+
+If the stable section of `cppget.org` is not an option then add this Git repository itself instead as a prerequisite.
+
+    :
+    role: prerequisite
+    location: https://github.com/build2-packaging/glm.git
+
+Add the respective dependency in your project's `manifest` file to make the package available for import.
+
+    depends: glm ^0.9.9
+
+The library can be imported by the following declaration in a `buildfile`.
+
+    import glm = glm%lib{glm}
+
+## Configuration
+There are no configuration options available.
+
+## Issues and Notes
+- As there are too many configuration macros, no precompiled library target is provided.
 
 ## Contributing
 Thanks in advance for your help and contribution to keep this package up-to-date.

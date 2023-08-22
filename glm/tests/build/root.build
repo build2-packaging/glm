@@ -1,0 +1,17 @@
+cxx.std = latest
+
+using cxx
+
+hxx{*}: extension = hpp
+ixx{*}: extension = inl
+cxx{*}: extension = cpp
+
+hxx{*}: cxx.importable = false
+
+exe{*}: test = true
+
+test.target = $cxx.target
+
+# Import GLM by default.
+#
+import lib = glm%lib{glm}

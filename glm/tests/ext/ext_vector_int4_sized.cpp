@@ -1,0 +1,1 @@
+../../../upstream/test/ext/ext_vector_int4_sized.cpp

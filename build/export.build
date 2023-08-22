@@ -1,6 +1,0 @@
-$out_root/
-{
-  include glm/
-}
-
-export $out_root/glm/$import.target

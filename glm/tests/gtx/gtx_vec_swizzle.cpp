@@ -1,0 +1,1 @@
+../../../upstream/test/gtx/gtx_vec_swizzle.cpp

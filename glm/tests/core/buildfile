@@ -1,0 +1,9 @@
+# The 'core_func_integer' already fails for optimized
+# builds when using the upstream build system.
+# Hence, it is disabled.
+#
+for x : cxx{* -core_func_integer}
+{
+  n = $name($x)
+  ./: exe{$n}: $x $lib
+}
