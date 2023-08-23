@@ -3,3 +3,10 @@ for x : cxx{* -gtc_user_defined_types}
   n = $name($x)
   ./: exe{$n}: $x $lib
 }
+
+# The original source file does not use
+# UTF-8 encoding but WINDOWS-1252 instead.
+# The has been copied and transformed into UTF-8.
+# Its original is given as the following.
+#
+./: file{gtc_quaternion.cpp.orig}

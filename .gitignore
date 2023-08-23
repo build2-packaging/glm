@@ -4,8 +4,12 @@
 !upstream
 !glm/glm
 
+!*.h
+!*.c
 !*.hpp
 !*.cpp
+!*.inl
+!*.orig
 
 !buildfile
 !bootstrap.build
