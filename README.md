@@ -34,6 +34,7 @@ There are no configuration options available.
 
 ## Issues and Notes
 - As there are too many configuration macros, no precompiled library target is provided.
+- `inconsistent C++ compiler behavior` bug for GCC version 12: `g++` seems not to be able to consistently process `tests/core/core_setup_message.cpp` because the preprocessing of `glm/detail/setup.hpp` leads to `internal compiler error: unspellable token PRAGMA_EOL`. As it is working for GCC version 13, this might be caused by an older bug in GCC 12 that already has been fixed.
 
 ## Contributing
 Thanks in advance for your help and contribution to keep this package up-to-date.
