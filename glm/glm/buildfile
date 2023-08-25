@@ -1,0 +1,12 @@
+lib{glm}: {hxx ixx}{**} hxx{**...h}
+{
+  cxx.export.poptions =+ "-I$src_root"
+}
+
+cxx.poptions =+ "-I$src_root"
+
+{hxx ixx}{*}:
+{
+  install = include/glm/
+  install.subdirs = true
+}

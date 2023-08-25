@@ -2,7 +2,6 @@
 !*/
 
 !upstream
-!glm/glm
 
 !*.h
 !*.c

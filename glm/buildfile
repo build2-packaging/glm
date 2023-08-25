@@ -1,10 +1,2 @@
-./: lib{glm}: glm/{hxx ixx}{**} glm/hxx{**...h}
-{
-  cxx.export.poptions =+ "-I$src_root"
-}
-
-{hxx ixx}{*}: install.subdirs = true
-
-./: tests/: install = false
-
-./: manifest legal{copying.txt} doc{*.md}
+./: {*/ -build/} manifest legal{copying.txt} doc{*.md}
+tests/: install = false
