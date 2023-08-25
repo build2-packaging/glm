@@ -1,7 +1,3 @@
-using c
-
-h{*}: extension = h
-
 cxx.std = latest
 
 using cxx

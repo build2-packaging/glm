@@ -1,9 +1,9 @@
-./: lib{glm}: glm/{h hxx ixx}{**}
+./: lib{glm}: glm/{hxx ixx}{**} glm/hxx{**...h}
 {
   cxx.export.poptions =+ "-I$src_root"
 }
 
-{h hxx ixx}{*}: install.subdirs = true
+{hxx ixx}{*}: install.subdirs = true
 
 ./: tests/: install = false
 
