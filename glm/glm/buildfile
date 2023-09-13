@@ -1,9 +1,7 @@
-lib{glm}: {hxx ixx}{**} hxx{**...h}
+lib{glm}: {hxx ixx}{**} hxx{**.h}
 {
   cxx.export.poptions =+ "-I$src_root"
 }
-
-cxx.poptions =+ "-I$src_root"
 
 {hxx ixx}{*}:
 {
