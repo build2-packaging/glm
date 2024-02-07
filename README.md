@@ -23,7 +23,7 @@ If the stable section of `cppget.org` is not an option then add this Git reposit
 
 Add the respective dependency in your project's `manifest` file to make the package available for import.
 
-    depends: glm ^0.9.9
+    depends: glm ^1.0.0
 
 The library can be imported by the following declaration in a `buildfile`.
 
@@ -33,8 +33,12 @@ The library can be imported by the following declaration in a `buildfile`.
 There are no configuration options available.
 
 ## Issues and Notes
-- As there are too many configuration macros, no precompiled library target is provided.
-- `inconsistent C++ compiler behavior` bug for GCC version 12: `g++` seems not to be able to consistently process `tests/core/core_setup_message.cpp` because the preprocessing of `glm/detail/setup.hpp` leads to `internal compiler error: unspellable token PRAGMA_EOL`. As it is working for GCC version 13, this might be caused by an older bug in GCC 12 that already has been fixed.
+- This package does not support the GLM C++ module that has been added in version 1.0.0 because support for C++ modules is still lacking in compilers.
+- As there are too many configuration macros, no precompiled library target is provided. The file `details/glm.cpp` is not part of the package.
+- The original `gtx/matrix_factorization.inl` file is not UTF-8 encoded and has therefore been replaced by a copy that was first transformed to encoded it with UTF-8.
+- The `gtc/gtc_bitfield.cpp` test fails for optimized Clang 16 configurations.
+- Trying to compile the `core/core_setup_message.cpp` test leads inconsistent compiler behavior errors on some target configurations and has therefore been disabled.
+- Some tests have been disabled to make the package with its tests compilable.
 
 ## Contributing
 Thanks in advance for your help and contribution to keep this package up-to-date.
