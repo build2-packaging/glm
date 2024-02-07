@@ -2,7 +2,7 @@
 # builds when using the upstream build system.
 # Hence, it is disabled.
 #
-for x : cxx{* -core_func_integer}
+for x : cxx{*}
 {
   n = $name($x)
   ./: exe{$n}: $x $lib

@@ -1,4 +1,11 @@
-for x : cxx{* -gtx_random -gtx_simd_vec4 -gtx_simd_mat4}
+# Some files need to be removed from build.
+# 1. Line of files included files that don't exist.
+# 2. Line of files are no actual tests and don't enable experimental support.
+#
+for x : cxx{* \
+  -gtx_random -gtx_simd_vec4 -gtx_simd_mat4 \
+  -gtx_associated_min_max -gtx_extented_min_max -gtx_int_10_10_10_2 -gtx_mixed_product \
+}
 {
   n = $name($x)
   ./: exe{$n}: $x $lib
