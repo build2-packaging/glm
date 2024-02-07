@@ -1,8 +1,7 @@
-# The 'core_func_integer' already fails for optimized
-# builds when using the upstream build system.
-# Hence, it is disabled.
+# The `core_setup_message` test leads to
+# inconsistent compiler behavior errors.
 #
-for x : cxx{*}
+for x : cxx{* -core_setup_message}
 {
   n = $name($x)
   ./: exe{$n}: $x $lib
