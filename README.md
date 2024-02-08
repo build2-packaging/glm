@@ -2,8 +2,8 @@
 
 This project builds and defines the build2 package for [GLM](https://github.com/g-truc/glm), also known as the OpenGL Mathematics (GLM) header-only C++ library for graphics software based on OpenGL Shading Language (GLSL) specifications.
 
-[![Official](https://img.shields.io/website/https/github.com/richgel999/miniz.svg?down_message=offline&label=Official&style=for-the-badge&up_color=blue&up_message=online)](https://github.com/g-truc/glm)
-[![build2](https://img.shields.io/website/https/github.com/build2-packaging/miniz.svg?down_message=offline&label=build2&style=for-the-badge&up_color=blue&up_message=online)](https://github.com/build2-packaging/glm)
+[![Official](https://img.shields.io/website/https/github.com/g-truc/glm.svg?down_message=offline&label=Official&style=for-the-badge&up_color=blue&up_message=online)](https://github.com/g-truc/glm)
+[![build2](https://img.shields.io/website/https/github.com/build2-packaging/glm.svg?down_message=offline&label=build2&style=for-the-badge&up_color=blue&up_message=online)](https://github.com/build2-packaging/glm)
 [![cppget.org](https://img.shields.io/website/https/cppget.org/glm.svg?down_message=offline&label=cppget.org&style=for-the-badge&up_color=blue&up_message=online)](https://cppget.org/glm)
 [![queue.cppget.org](https://img.shields.io/website/https/queue.cppget.org/glm.svg?down_message=empty&down_color=blue&label=queue.cppget.org&style=for-the-badge&up_color=orange&up_message=running)](https://queue.cppget.org/glm)
 
