@@ -35,9 +35,9 @@ There are no configuration options available.
 ## Issues and Notes
 - This package does not support the GLM C++ module that has been added in version 1.0.0 because support for C++ modules is still lacking in compilers.
 - As there are too many configuration macros, no precompiled library target is provided. The file `details/glm.cpp` is not part of the package.
-- The original `gtx/matrix_factorization.inl` file is not UTF-8 encoded and has therefore been replaced by a copy that was first transformed to encoded it with UTF-8.
-- The `gtc/gtc_bitfield.cpp` test fails for optimized Clang 16 configurations.
-- Trying to compile the `core/core_setup_message.cpp` test leads inconsistent compiler behavior errors on some target configurations and has therefore been disabled.
+- The original `gtx/matrix_factorization.inl` file is not UTF-8 encoded and has therefore been replaced by a copy that was first transformed to encode it with UTF-8.
+- The `gtc/gtc_bitfield.cpp` test randomly fails for optimized Clang configurations.
+- Trying to compile the `core/core_setup_message.cpp` test leads to inconsistent compiler behavior errors on some target configurations and has therefore been disabled.
 - Some tests have been disabled to make the package with its tests compilable.
 
 ## Contributing
