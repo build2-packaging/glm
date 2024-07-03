@@ -1,6 +1,6 @@
 : 1
 name: glm
-version: 1.0.0
+version: 1.0.1-a.0.z
 type: lib,binless
 language: c++
 summary: Header-only C++ mathematics library for graphics software based on the OpenGL Shading Language (GLSL) specifications
