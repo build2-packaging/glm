@@ -1,9 +1,11 @@
 cxx.std = latest
+cxx.features.modules = true
 
 using cxx
 
 hxx{*}: extension = hpp
 ixx{*}: extension = inl
+mxx{*}: extension = cppm
 cxx{*}: extension = cpp
 
 hxx{*}: cxx.importable = false

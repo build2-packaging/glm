@@ -1,9 +1,12 @@
-lib{glm}: {hxx ixx}{**} hxx{**.h}
+lib{glm}: {hxx ixx mxx}{**} hxx{**.h}
 {
   cxx.export.poptions =+ "-I$src_root"
+  bin.binless = true
 }
 
-{hxx ixx}{*}:
+cxx.poptions =+ "-I$src_root"
+
+{hxx ixx mxx}{*}:
 {
   install = include/glm/
   install.subdirs = true

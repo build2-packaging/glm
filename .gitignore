@@ -7,6 +7,7 @@
 !*.c
 !*.hpp
 !*.cpp
+!*.cppm
 !*.inl
 !*.orig
 
