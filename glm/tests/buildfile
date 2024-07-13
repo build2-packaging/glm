@@ -1,9 +1,3 @@
 ./: {*/ -build/ -module/}
 
-modules_usable = [bool] \
-  (($cxx.id == 'msvc' && \
-    ($cxx.version.major > 17 || \
-      ($cxx.version.major == 17 && $cxx.version.minor >= 10))) || \
-  ($cxx.id == 'clang' && ($cxx.version.major >= 18)))
-
-./: module/: include = $modules_usable
+./: module/: include = $modules_supported

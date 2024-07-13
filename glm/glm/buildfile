@@ -1,10 +1,24 @@
-lib{glm}: {hxx ixx mxx}{**} hxx{**.h}
+lib{glm}: {hxx ixx}{**} hxx{**.h}
 {
   cxx.export.poptions =+ "-I$src_root"
   bin.binless = true
 }
 
+modules_supported = [bool] \
+  (($cxx.id == 'msvc' && \
+    ($cxx.version.major > 17 || \
+      ($cxx.version.major == 17 && $cxx.version.minor >= 10))) || \
+  ($cxx.id == 'clang' && ($cxx.version.major >= 18)))
+
+lib{glm}: mxx{glm}: include = $modules_supported
+
 cxx.poptions =+ "-I$src_root"
+
+lib{glm}:
+{
+  export.metadata = 1 glm
+  glm.modules_supported = [bool] $modules_supported
+}
 
 {hxx ixx mxx}{*}:
 {
