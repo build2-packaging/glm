@@ -1,19 +1,20 @@
 : 1
 name: glm
 version: 1.0.1
-type: lib,binless
+type: lib
 language: c++
-summary: Header-only C++ mathematics library for graphics software based on the OpenGL Shading Language (GLSL) specifications
+summary: C++ mathematics library for graphics software based on the OpenGL Shading Language (GLSL) specifications
 license: MIT
 license: The Happy Bunny License
 
 description-file: README.md
 url: https://github.com/g-truc/glm
+doc-url: https://github.com/g-truc/glm/blob/master/manual.md
 email: mail@g-truc.net
 
 package-description-file: PACKAGE-README.md
 package-url: https://github.com/build2-packaging/glm
 package-email: packaging@build2.org
 
-depends: * build2 >= 0.16.0
-depends: * bpkg >= 0.16.0
+depends: * build2 >= 0.17.0
+depends: * bpkg >= 0.17.0
