@@ -16,4 +16,4 @@ test.target = $cxx.target
 # Import GLM by default.
 #
 import! [metadata, rule_hint=cxx.link] lib = glm%lib{glm}
-modules_supported = [bool] $($lib: glm.modules_supported)
+module_available = [bool] $($lib: glm.module)

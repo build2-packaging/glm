@@ -11,3 +11,103 @@ cxx{*}: extension = cpp
 hxx{*}: cxx.importable = false
 
 test.target = $cxx.target
+
+# Make the `glm` module available for import.
+#
+config [bool] config.glm.module ?= false
+
+# Report the configuration as part of the build log.
+#
+config [bool] config.glm.messages ?= false
+
+# Force GLM to no detect the build platform.
+#
+config [bool] config.glm.platform_unknown ?= false
+
+# Force GLM to no detect the C++ compiler.
+#
+config [bool] config.glm.compiler_unknown ?= false
+
+# Force GLM to no detect the build architecture.
+#
+config [bool] config.glm.arch_unknown ?= false
+
+# Force GLM to no detect the C++ standard.
+#
+config [bool] config.glm.cxx_unknown ?= false
+
+# Restrict the language feature set to the given C++ standard.
+#
+config [bool] config.glm.cxx ?= false
+
+# Require explicit conversion for GLM types.
+#
+config [bool] config.glm.explicit_ctor ?= false
+
+# Force the compiler to inline GLM code.
+#
+config [bool] config.glm.inline ?= false
+
+# Force GLM to enable aligned types.
+#
+config [bool] config.glm.aligned_gentypes ?= false
+
+#Force GLM to use aligned types by default.
+#
+config [bool] config.glm.default_aligned_gentypes ?= false
+
+# Use SIMD optimizations.
+#
+config [bool] config.glm.intrinsics ?= false
+# config [bool] config.glm.pure ?= false
+# config [bool] config.glm.sse2 ?= false
+# config [bool] config.glm.sse3 ?= false
+# config [bool] config.glm.ssse3 ?= false
+# config [bool] config.glm.sse41 ?= false
+# config [bool] config.glm.sse42 ?= false
+# config [bool] config.glm.avx ?= false
+# config [bool] config.glm.avx2 ?= false
+# config [bool] config.glm.avx512 ?= false
+
+# Set default precision.
+#
+# config [bool] config.glm.precision_float ?= false
+# config [bool] config.glm.precision_double ?= false
+# config [bool] config.glm.precision_int ?= false
+# config [bool] config.glm.precision_uint ?= false
+
+# Remove explicit 64-bits floating point types.
+#
+config [bool] config.glm.single_only ?= false
+
+# Enable swizzle operators.
+#
+config [bool] config.glm.swizzle ?= false
+
+# Only expose x, y, z and w components.
+#
+config [bool] config.glm.xyzw_only ?= false
+
+# Force left-handed coordinate system.
+#
+config [bool] config.glm.left_handed ?= false
+
+# Force the use of a clip space between 0 to 1.
+#
+config [bool] config.glm.depth_zero_to_one ?= false
+
+# Member functions length() return a size_t.
+#
+config [bool] config.glm.size_t_length ?= false
+
+# Remove genType restriction to relax API.
+#
+config [bool] config.glm.unrestricted_gentype ?= false
+
+# Silence C++ warnings from language extensions.
+#
+# config [bool] config.glm.silent_warnings ?= false
+
+# Force GLM to store quat data as x,y,z,w instead of w,x,y,z.
+#
+config [bool] config.glm.quat_data_xyzw ?= false
