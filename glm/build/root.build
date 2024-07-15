@@ -12,33 +12,12 @@ hxx{*}: cxx.importable = false
 
 test.target = $cxx.target
 
-# Make the `glm` module available for import.
+# Public Configuration Variables
+# Can be used for dependency configuration negotiation.
+
+# Build the `glm` module and make it available for import.
 #
 config [bool] config.glm.module ?= false
-
-# Report the configuration as part of the build log.
-#
-config [bool] config.glm.messages ?= false
-
-# Force GLM to no detect the build platform.
-#
-config [bool] config.glm.platform_unknown ?= false
-
-# Force GLM to no detect the C++ compiler.
-#
-config [bool] config.glm.compiler_unknown ?= false
-
-# Force GLM to no detect the build architecture.
-#
-config [bool] config.glm.arch_unknown ?= false
-
-# Force GLM to no detect the C++ standard.
-#
-config [bool] config.glm.cxx_unknown ?= false
-
-# Restrict the language feature set to the given C++ standard.
-#
-config [bool] config.glm.cxx ?= false
 
 # Require explicit conversion for GLM types.
 #
@@ -56,25 +35,108 @@ config [bool] config.glm.aligned_gentypes ?= false
 #
 config [bool] config.glm.default_aligned_gentypes ?= false
 
-# Use SIMD optimizations.
+# Use or disable specific/automatic SIMD optimizations.
 #
-config [bool] config.glm.intrinsics ?= false
-# config [bool] config.glm.pure ?= false
-# config [bool] config.glm.sse2 ?= false
-# config [bool] config.glm.sse3 ?= false
-# config [bool] config.glm.ssse3 ?= false
-# config [bool] config.glm.sse41 ?= false
-# config [bool] config.glm.sse42 ?= false
-# config [bool] config.glm.avx ?= false
-# config [bool] config.glm.avx2 ?= false
-# config [bool] config.glm.avx512 ?= false
+config [string] config.glm.intrinsics ?= [null]
+switch $config.glm.intrinsics
+{
+  case [null]
+    intrinsics = [null]
+  case 'pure'
+    intrinsics = PURE
+  case 'auto'
+    intrinsics = INTRINSICS
+  case 'sse2'
+    intrinsics = SSE2
+  case 'sse3'
+    intrinsics = SSE3
+  case 'ssse3'
+    intrinsics = SSSE3
+  case 'sse41'
+    intrinsics = SSE41
+  case 'sse42'
+    intrinsics = SSE42
+  case 'avx'
+    intrinsics = AVX
+  case 'avx2'
+    intrinsics = AVX2
+  case 'avx512'
+    intrinsics = AVX512
+  default
+    fail "Unsupported GLM intrinsics '$config.glm.intrinsics'. Available values are 'pure', 'auto', 'sse2', 'sse3', 'ssse3', 'sse41', 'sse42', 'avx', 'avx2', 'avx512'."
+}
 
-# Set default precision.
+# Set default float precision.
 #
-# config [bool] config.glm.precision_float ?= false
-# config [bool] config.glm.precision_double ?= false
-# config [bool] config.glm.precision_int ?= false
-# config [bool] config.glm.precision_uint ?= false
+config [string] config.glm.precision_float ?= [null]
+#
+switch $config.glm.precision_float
+{
+  case [null]
+    precision_float = [null]
+  case 'low'
+    precision_float = LOW
+  case 'medium'
+    precision_float = MEDIUM
+  case 'high'
+    precision_float = HIGH
+  default
+    fail "Unsupported GLM float precision '$config.glm.precision_float'. Available precisions are 'low', 'medium', and 'high'."
+}
+
+# Set default double precision.
+#
+config [string] config.glm.precision_double ?= [null]
+#
+switch $config.glm.precision_double
+{
+  case [null]
+    precision_double = [null]
+  case 'low'
+    precision_double = LOW
+  case 'medium'
+    precision_double = MEDIUM
+  case 'high'
+    precision_double = HIGH
+  default
+    fail "Unsupported GLM double precision '$config.glm.precision_double'. Available precisions are 'low', 'medium', and 'high'."
+}
+
+# Set default int precision.
+#
+config [string] config.glm.precision_int ?= [null]
+#
+switch $config.glm.precision_int
+{
+  case [null]
+    precision_int = [null]
+  case 'low'
+    precision_int = LOW
+  case 'medium'
+    precision_int = MEDIUM
+  case 'high'
+    precision_int = HIGH
+  default
+    fail "Unsupported GLM int precision '$config.glm.precision_int'. Available precisions are 'low', 'medium', and 'high'."
+}
+
+# Set default uint precision.
+#
+config [string] config.glm.precision_uint ?= [null]
+#
+switch $config.glm.precision_uint
+{
+  case [null]
+    precision_uint = [null]
+  case 'low'
+    precision_uint = LOW
+  case 'medium'
+    precision_uint = MEDIUM
+  case 'high'
+    precision_uint = HIGH
+  default
+    fail "Unsupported GLM uint precision '$config.glm.precision_uint'. Available precisions are 'low', 'medium', and 'high'."
+}
 
 # Remove explicit 64-bits floating point types.
 #
@@ -104,10 +166,37 @@ config [bool] config.glm.size_t_length ?= false
 #
 config [bool] config.glm.unrestricted_gentype ?= false
 
-# Silence C++ warnings from language extensions.
-#
-# config [bool] config.glm.silent_warnings ?= false
-
 # Force GLM to store quat data as x,y,z,w instead of w,x,y,z.
 #
 config [bool] config.glm.quat_data_xyzw ?= false
+
+# Private Configuration Variables
+# Should not be used for dependency configuration negotiation.
+
+# Report the configuration as part of the build log.
+#
+config [bool] config.glm.messages ?= false
+
+# Force GLM to no detect the build platform.
+#
+config [bool] config.glm.platform_unknown ?= false
+
+# Force GLM to no detect the C++ compiler.
+#
+config [bool] config.glm.compiler_unknown ?= false
+
+# Force GLM to no detect the build architecture.
+#
+config [bool] config.glm.arch_unknown ?= false
+
+# Force GLM to no detect the C++ standard.
+#
+config [bool] config.glm.cxx_unknown ?= false
+
+# Restrict the language feature set to the given C++ standard.
+#
+config [uint64] config.glm.cxx ?= [null]
+
+# Silence C++ warnings from language extensions.
+#
+config [bool] config.glm.silent_warnings ?= false
