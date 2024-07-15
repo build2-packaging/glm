@@ -12,94 +12,106 @@ lib{glm}: mxx{glm}: include = $config.glm.module
 #
 cxx.poptions =+ "-I$src_root"
 #
-if ($config.glm.explicit_ctor)
-  cxx.poptions += -DGLM_FORCE_EXPLICIT_CTOR
-if ($config.glm.inline)
-  cxx.poptions += -DGLM_FORCE_INLINE
-if ($config.glm.aligned_gentypes)
-  cxx.poptions += -DGLM_FORCE_ALIGNED_GENTYPES
-if ($config.glm.default_aligned_gentypes)
-  cxx.poptions += -DGLM_FORCE_DEFAULT_ALIGNED_GENTYPES
-#
-if ($intrinsics != [null])
-  cxx.poptions += "-DGLM_FORCE_$intrinsics"
-#
-if ($precision_float != [null])
-  cxx.poptions += "-DGLM_FORCE_PRECISION_$(precision_float)P_FLOAT"
-if ($precision_double != [null])
-  cxx.poptions += "-DGLM_FORCE_PRECISION_$(precision_double)P_DOUBLE"
-if ($precision_int != [null])
-  cxx.poptions += "-DGLM_FORCE_PRECISION_$(precision_int)P_INT"
-if ($precision_uint != [null])
-  cxx.poptions += "-DGLM_FORCE_PRECISION_$(precision_uint)P_UINT"
-#
-if ($config.glm.single_only)
-  cxx.poptions += -DGLM_FORCE_SINGLE_ONLY
-if ($config.glm.swizzle)
-  cxx.poptions += -DGLM_FORCE_SWIZZLE
-if ($config.glm.xyzw_only)
-  cxx.poptions += -DGLM_FORCE_XYZW_ONLY
-if ($config.glm.left_handed)
-  cxx.poptions += -DGLM_FORCE_LEFT_HANDED
-if ($config.glm.depth_zero_to_one)
-  cxx.poptions += -DGLM_FORCE_DEPTH_ZERO_TO_ONE
-if ($config.glm.size_t_length)
-  cxx.poptions += -DGLM_FORCE_SIZE_T_LENGTH
-if ($config.glm.unrestricted_gentype)
-  cxx.poptions += -DGLM_FORCE_UNRESTRICTED_GENTYPE
-if ($config.glm.quat_data_xyzw)
-  cxx.poptions += -DGLM_FORCE_QUAT_DATA_XYZW
-#
-# Build Options from Private Configuration
-#
-if ($config.glm.messages)
-  cxx.poptions += -DGLM_FORCE_MESSAGES
-if ($config.glm.platform_unknown)
-  cxx.poptions += -DGLM_FORCE_PLATFORM_UNKNOWN
-if ($config.glm.compiler_unknown)
-  cxx.poptions += -DGLM_FORCE_COMPILER_UNKNOWN
-if ($config.glm.arch_unknown)
-  cxx.poptions += -DGLM_FORCE_ARCH_UNKNOWN
-if ($config.glm.cxx_unknown)
-  cxx.poptions += -DGLM_FORCE_CXX_UNKNOWN
-if ($config.glm.cxx != [null])
-  cxx.poptions += "-DGLM_FORCE_CXX$config.glm.cxx"
-if ($config.glm.silent_warnings)
-  cxx.poptions += -DGLM_FORCE_SILENT_WARNINGS
+if $config.glm.module
+{
+  if ($config.glm.explicit_ctor)
+    cxx.poptions += -DGLM_FORCE_EXPLICIT_CTOR
+  if ($config.glm.inline)
+    cxx.poptions += -DGLM_FORCE_INLINE
+  if ($config.glm.aligned_gentypes)
+    cxx.poptions += -DGLM_FORCE_ALIGNED_GENTYPES
+  if ($config.glm.default_aligned_gentypes)
+    cxx.poptions += -DGLM_FORCE_DEFAULT_ALIGNED_GENTYPES
+  #
+  if ($intrinsics != [null])
+    cxx.poptions += "-DGLM_FORCE_$intrinsics"
+  #
+  if ($precision_float != [null])
+    cxx.poptions += "-DGLM_FORCE_PRECISION_$(precision_float)P_FLOAT"
+  if ($precision_double != [null])
+    cxx.poptions += "-DGLM_FORCE_PRECISION_$(precision_double)P_DOUBLE"
+  if ($precision_int != [null])
+    cxx.poptions += "-DGLM_FORCE_PRECISION_$(precision_int)P_INT"
+  if ($precision_uint != [null])
+    cxx.poptions += "-DGLM_FORCE_PRECISION_$(precision_uint)P_UINT"
+  #
+  if ($config.glm.single_only)
+    cxx.poptions += -DGLM_FORCE_SINGLE_ONLY
+  if ($config.glm.swizzle)
+    cxx.poptions += -DGLM_FORCE_SWIZZLE
+  if ($config.glm.xyzw_only)
+    cxx.poptions += -DGLM_FORCE_XYZW_ONLY
+  if ($config.glm.left_handed)
+    cxx.poptions += -DGLM_FORCE_LEFT_HANDED
+  if ($config.glm.depth_zero_to_one)
+    cxx.poptions += -DGLM_FORCE_DEPTH_ZERO_TO_ONE
+  if ($config.glm.size_t_length)
+    cxx.poptions += -DGLM_FORCE_SIZE_T_LENGTH
+  if ($config.glm.unrestricted_gentype)
+    cxx.poptions += -DGLM_FORCE_UNRESTRICTED_GENTYPE
+  if ($config.glm.quat_data_xyzw)
+    cxx.poptions += -DGLM_FORCE_QUAT_DATA_XYZW
+  #
+  # Build Options from Private Configuration
+  #
+  if ($config.glm.messages)
+    cxx.poptions += -DGLM_FORCE_MESSAGES
+  if ($config.glm.platform_unknown)
+    cxx.poptions += -DGLM_FORCE_PLATFORM_UNKNOWN
+  if ($config.glm.compiler_unknown)
+    cxx.poptions += -DGLM_FORCE_COMPILER_UNKNOWN
+  if ($config.glm.arch_unknown)
+    cxx.poptions += -DGLM_FORCE_ARCH_UNKNOWN
+  if ($config.glm.cxx_unknown)
+    cxx.poptions += -DGLM_FORCE_CXX_UNKNOWN
+  if ($config.glm.cxx != [null])
+    cxx.poptions += "-DGLM_FORCE_CXX$config.glm.cxx"
+  if ($config.glm.silent_warnings)
+    cxx.poptions += -DGLM_FORCE_SILENT_WARNINGS
+}
 
 # Export Options
 #
 lib{glm}: cxx.export.poptions =+ "-I$src_root"
 
-# Export Data
+# Export Metadata
 #
 lib{glm}:
 {
   export.metadata = 1 glm
   glm.module = [bool] $config.glm.module
-  #
-  glm.explicit_ctor = [bool] $config.glm.explicit_ctor
-  glm.inline = [bool] $config.glm.inline
-  glm.aligned_gentypes = [bool] $config.glm.aligned_gentypes
-  glm.default_aligned_gentypes = [bool] $config.glm.default_aligned_gentypes
-  glm.intrinsics = [string] \
-    ($config.glm.intrinsics == [null] ? 'null' : $config.glm.intrinsics)
-  glm.precision_float = [string] \
-    ($config.glm.precision_float == [null] ? 'null' : $config.glm.precision_float)
-  glm.precision_double = [string] \
-    ($config.glm.precision_double == [null] ? 'null' : $config.glm.precision_double)
-  glm.precision_int = [string] \
-    ($config.glm.precision_int == [null] ? 'null' : $config.glm.precision_int)
-  glm.precision_uint = [string] \
-    ($config.glm.precision_uint == [null] ? 'null' : $config.glm.precision_uint)
-  glm.single_only = [bool] $config.glm.single_only
-  glm.swizzle = [bool] $config.glm.swizzle
-  glm.xyzw_only = [bool] $config.glm.xyzw_only
-  glm.left_handed = [bool] $config.glm.left_handed
-  glm.depth_zero_to_one = [bool] $config.glm.depth_zero_to_one
-  glm.size_t_length = [bool] $config.glm.size_t_length
-  glm.unrestricted_gentype = [bool] $config.glm.unrestricted_gentype
-  glm.quat_data_xyzw = [bool] $config.glm.quat_data_xyzw
+}
+#
+# In the case of using the module,
+# exporting additional metadata is useful.
+#
+if $config.glm.module
+{
+  lib{glm}:
+  {
+    glm.explicit_ctor = [bool] $config.glm.explicit_ctor
+    glm.inline = [bool] $config.glm.inline
+    glm.aligned_gentypes = [bool] $config.glm.aligned_gentypes
+    glm.default_aligned_gentypes = [bool] $config.glm.default_aligned_gentypes
+    glm.intrinsics = [string] \
+      ($config.glm.intrinsics == [null] ? 'null' : $config.glm.intrinsics)
+    glm.precision_float = [string] \
+      ($config.glm.precision_float == [null] ? 'null' : $config.glm.precision_float)
+    glm.precision_double = [string] \
+      ($config.glm.precision_double == [null] ? 'null' : $config.glm.precision_double)
+    glm.precision_int = [string] \
+      ($config.glm.precision_int == [null] ? 'null' : $config.glm.precision_int)
+    glm.precision_uint = [string] \
+      ($config.glm.precision_uint == [null] ? 'null' : $config.glm.precision_uint)
+    glm.single_only = [bool] $config.glm.single_only
+    glm.swizzle = [bool] $config.glm.swizzle
+    glm.xyzw_only = [bool] $config.glm.xyzw_only
+    glm.left_handed = [bool] $config.glm.left_handed
+    glm.depth_zero_to_one = [bool] $config.glm.depth_zero_to_one
+    glm.size_t_length = [bool] $config.glm.size_t_length
+    glm.unrestricted_gentype = [bool] $config.glm.unrestricted_gentype
+    glm.quat_data_xyzw = [bool] $config.glm.quat_data_xyzw
+  }
 }
 
 # Install headers, inclusion files, and module interface units.
