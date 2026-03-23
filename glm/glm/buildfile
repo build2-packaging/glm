@@ -1,10 +1,15 @@
-lib{glm}: {hxx ixx}{**} hxx{**.h}
-{
-  cxx.export.poptions =+ "-I$src_root"
-}
+# Sources
+#
+lib{glm}: glm/{hxx ixx}{**} glm/hxx{**.h}
 
+# Export Options
+#
+lib{glm}: cxx.export.poptions =+ "-I$src_base"
+
+# Installation
+#
 {hxx ixx}{*}:
 {
-  install = include/glm/
+  install = include/
   install.subdirs = true
 }

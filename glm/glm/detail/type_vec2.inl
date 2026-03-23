@@ -1,1 +1,0 @@
-../../../upstream/glm/detail/type_vec2.inl

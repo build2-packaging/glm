@@ -1,1 +1,0 @@
-../../../upstream/glm/ext/quaternion_trigonometric.inl

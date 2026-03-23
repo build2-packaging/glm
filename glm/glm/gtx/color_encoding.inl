@@ -1,1 +1,0 @@
-../../../upstream/glm/gtx/color_encoding.inl
