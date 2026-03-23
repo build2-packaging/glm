@@ -1,1 +1,0 @@
-../../../upstream/test/perf/perf_vector_mul_matrix.cpp

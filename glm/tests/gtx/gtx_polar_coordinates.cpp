@@ -1,1 +1,0 @@
-../../../upstream/test/gtx/gtx_polar_coordinates.cpp

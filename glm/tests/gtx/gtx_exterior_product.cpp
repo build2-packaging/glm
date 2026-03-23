@@ -1,1 +1,0 @@
-../../../upstream/test/gtx/gtx_exterior_product.cpp

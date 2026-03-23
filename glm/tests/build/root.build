@@ -8,10 +8,6 @@ cxx{*}: extension = cpp
 
 hxx{*}: cxx.importable = false
 
-exe{*}: test = true
-
 test.target = $cxx.target
 
-# Import GLM by default.
-#
-import lib = glm%lib{glm}
+exe{*}: test = true

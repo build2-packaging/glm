@@ -1,1 +1,0 @@
-../../../upstream/test/gtx/gtx_mixed_product.cpp

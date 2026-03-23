@@ -1,1 +1,0 @@
-../../../upstream/test/gtc/gtc_random.cpp

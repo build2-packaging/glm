@@ -1,1 +1,34 @@
-./: {*/ -build/}
+import glm = glm%lib{glm}
+
+# Blacklist all tests that upstream's build system does not explicitly add.
+#
+blacklist = \
+  core/core_force_depth_zero_to_one \
+  core/core_force_left_handed \
+  core/core_force_size_t_length \
+  core/core_force_xyzw_only \
+  ext/ext_matrix_clip_space \
+  ext/ext_matrix_projection \
+  ext/ext_scalar_packing \
+  ext/ext_vector_packing \
+  gtc/gtc_user_defined_types \
+  gtx/gtx_extented_min_max \
+  gtx/gtx_int_10_10_10_2 \
+  gtx/gtx_mixed_product \
+  gtx/gtx_random \
+  gtx/gtx_simd_mat4 \
+  gtx/gtx_simd_vec4
+
+# Remove test that leads to inconsistent compiler behavior errors.
+#
+blacklist += core/core_setup_message
+
+# Build all unit tests in the current directory.
+# Potential naming issues are prevented because
+# all test sources are sufficiently prefixed.
+#
+for x : test/cxx{** -{$blacklist}}
+{
+  n = $name($x)
+  ./: exe{$n}: $x $glm
+}

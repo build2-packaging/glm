@@ -1,1 +1,0 @@
-../../../upstream/test/core/core_setup_force_cxx98.cpp

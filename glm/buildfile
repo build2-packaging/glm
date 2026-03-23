@@ -1,2 +1,2 @@
-./: {*/ -build/} manifest legal{copying.txt} doc{*.md}
-tests/: install = false
+./: glm/ manifest legal{copying.txt} doc{*.md}
+./: tests/: install = false

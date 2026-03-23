@@ -1,1 +1,0 @@
-../../../upstream/test/gtx/gtx_normalize_dot.cpp

@@ -48,3 +48,4 @@
 # Allow specific symbolic links to directories.
 #
 !glm/glm/glm
+!glm/tests/test

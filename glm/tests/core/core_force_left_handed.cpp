@@ -1,1 +1,0 @@
-../../../upstream/test/core/core_force_left_handed.cpp

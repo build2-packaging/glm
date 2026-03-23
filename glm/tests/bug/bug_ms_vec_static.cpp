@@ -1,1 +1,0 @@
-../../../upstream/test/bug/bug_ms_vec_static.cpp
