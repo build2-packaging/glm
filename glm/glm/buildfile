@@ -1,14 +1,22 @@
-# Sources
+# Headers
 #
 lib{glm}: glm/{hxx ixx}{**} glm/hxx{**.h}
 
-# Export Options
+# Modules
 #
-lib{glm}: cxx.export.poptions =+ "-I$src_base"
+lib{glm}: glm/mxx{**}: include = $cxx.features.modules
+
+# Build and Export Options
+#
+lib{glm}:
+{
+  cxx.export.poptions =+ "-I$src_base"
+  bin.binless = true
+}
 
 # Installation
 #
-{hxx ixx}{*}:
+{hxx ixx mxx}{*}:
 {
   install = include/
   install.subdirs = true

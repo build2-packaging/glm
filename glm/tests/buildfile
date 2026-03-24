@@ -1,5 +1,8 @@
 import glm = glm%lib{glm}
 
+./: exe{module_test}: include = $cxx.features.modules
+exe{module_test}: cxx{module_test} $glm
+
 # Blacklist all tests that upstream's build system does not explicitly add.
 #
 blacklist = \

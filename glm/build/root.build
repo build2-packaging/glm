@@ -5,6 +5,7 @@ using cxx
 hxx{*}: extension = hpp
 ixx{*}: extension = inl
 cxx{*}: extension = cpp
+mxx{*}: extension = cppm
 
 hxx{*}: cxx.importable = false
 
