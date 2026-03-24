@@ -44,6 +44,8 @@ for x : test/cxx{** -{$blacklist}}
 
 # Build Options
 #
+cxx.poptions += -DGLM_TEST_PERF
+
 switch $cxx.target.class, $cxx.id
 {
   case 'linux', 'gcc'
