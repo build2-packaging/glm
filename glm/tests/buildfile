@@ -23,6 +23,12 @@ blacklist = \
 #
 blacklist += core/core_setup_message
 
+# Disable test that runs into compiler errors on Windows.
+#
+blacklist += gtc/gtc_random
+./: exe{gtc_random}: include = ($cxx.target.class != 'windows')
+exe{gtc_random}: test/gtc/cxx{gtc_random} $glm
+
 # Build all unit tests in the current directory.
 # Potential naming issues are prevented because
 # all test sources are sufficiently prefixed.
