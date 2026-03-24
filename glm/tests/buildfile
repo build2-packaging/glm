@@ -32,3 +32,12 @@ for x : test/cxx{** -{$blacklist}}
   n = $name($x)
   ./: exe{$n}: $x $glm
 }
+
+# Build Options
+#
+switch $cxx.target.class, $cxx.id
+{
+  case 'linux', 'gcc'
+  case 'linux', 'clang'
+    test/gtx/obj{gtx_intersect}: cxx.coptions += -Wno-unused-function
+}
