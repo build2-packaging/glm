@@ -3,6 +3,11 @@ import glm = glm%lib{glm}
 ./: exe{module_test}: include = $cxx.features.modules
 exe{module_test}: cxx{module_test} $glm
 
+# Use bare header-only library for unit tests because
+# some tests define certain config macros by themselves.
+#
+import glm_headers = glm%lib{glm-headers}
+
 # Blacklist all tests that upstream's build system does not explicitly add.
 #
 blacklist = \
@@ -30,7 +35,7 @@ blacklist += core/core_setup_message
 #
 blacklist += gtc/gtc_random
 ./: exe{gtc_random}: include = ($cxx.target.class != 'windows')
-exe{gtc_random}: test/gtc/cxx{gtc_random} $glm
+exe{gtc_random}: test/gtc/cxx{gtc_random} $glm_headers
 
 # Build all unit tests in the current directory.
 # Potential naming issues are prevented because
@@ -39,7 +44,7 @@ exe{gtc_random}: test/gtc/cxx{gtc_random} $glm
 for x : test/cxx{** -{$blacklist}}
 {
   n = $name($x)
-  ./: exe{$n}: $x $glm
+  ./: exe{$n}: $x $glm_headers
 }
 
 # Build Options
