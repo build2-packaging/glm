@@ -1,3 +1,197 @@
+# Require explicit conversion for GLM types.
+#
+config [bool] config.glm.explicit_ctor ?= false
+
+# Force the compiler to inline GLM code.
+#
+config [bool] config.glm.inline ?= false
+
+# Force GLM to enable aligned types.
+#
+config [bool] config.glm.aligned_gentypes ?= false
+
+# Force GLM to use aligned types by default.
+#
+config [bool] config.glm.default_aligned_gentypes ?= false
+
+# Use or disable specific/automatic SIMD optimizations.
+#
+config [string] config.glm.intrinsics ?= [null]
+switch $config.glm.intrinsics
+{
+  case [null]
+    intrinsics = [null]
+  case 'pure'
+    intrinsics = PURE
+  case 'auto'
+    intrinsics = INTRINSICS
+  case 'sse2'
+    intrinsics = SSE2
+  case 'sse3'
+    intrinsics = SSE3
+  case 'ssse3'
+    intrinsics = SSSE3
+  case 'sse41'
+    intrinsics = SSE41
+  case 'sse42'
+    intrinsics = SSE42
+  case 'avx'
+    intrinsics = AVX
+  case 'avx2'
+    intrinsics = AVX2
+  case 'avx512'
+    intrinsics = AVX512
+  default
+    fail "Unsupported GLM intrinsics '$config.glm.intrinsics'. Available values are 'pure', 'auto', 'sse2', 'sse3', 'ssse3', 'sse41', 'sse42', 'avx', 'avx2', 'avx512'."
+}
+
+# Set default float precision.
+#
+config [string] config.glm.precision_float ?= [null]
+#
+switch $config.glm.precision_float
+{
+  case [null]
+    precision_float = [null]
+  case 'low'
+    precision_float = LOW
+  case 'medium'
+    precision_float = MEDIUM
+  case 'high'
+    precision_float = HIGH
+  default
+    fail "Unsupported GLM float precision '$config.glm.precision_float'. Available precisions are 'low', 'medium', and 'high'."
+}
+
+# Set default double precision.
+#
+config [string] config.glm.precision_double ?= [null]
+#
+switch $config.glm.precision_double
+{
+  case [null]
+    precision_double = [null]
+  case 'low'
+    precision_double = LOW
+  case 'medium'
+    precision_double = MEDIUM
+  case 'high'
+    precision_double = HIGH
+  default
+    fail "Unsupported GLM double precision '$config.glm.precision_double'. Available precisions are 'low', 'medium', and 'high'."
+}
+
+# Set default int precision.
+#
+config [string] config.glm.precision_int ?= [null]
+#
+switch $config.glm.precision_int
+{
+  case [null]
+    precision_int = [null]
+  case 'low'
+    precision_int = LOW
+  case 'medium'
+    precision_int = MEDIUM
+  case 'high'
+    precision_int = HIGH
+  default
+    fail "Unsupported GLM int precision '$config.glm.precision_int'. Available precisions are 'low', 'medium', and 'high'."
+}
+
+# Set default uint precision.
+#
+config [string] config.glm.precision_uint ?= [null]
+#
+switch $config.glm.precision_uint
+{
+  case [null]
+    precision_uint = [null]
+  case 'low'
+    precision_uint = LOW
+  case 'medium'
+    precision_uint = MEDIUM
+  case 'high'
+    precision_uint = HIGH
+  default
+    fail "Unsupported GLM uint precision '$config.glm.precision_uint'. Available precisions are 'low', 'medium', and 'high'."
+}
+
+# Remove explicit 64-bits floating point types.
+#
+config [bool] config.glm.single_only ?= false
+
+# Enable swizzle operators.
+#
+config [bool] config.glm.swizzle ?= false
+
+# Only expose x, y, z and w components.
+#
+config [bool] config.glm.xyzw_only ?= false
+
+# Force left-handed coordinate system.
+#
+config [bool] config.glm.left_handed ?= false
+
+# Force the use of a clip space between 0 to 1.
+#
+config [bool] config.glm.depth_zero_to_one ?= false
+
+# Member functions length() return a size_t.
+#
+config [bool] config.glm.size_t_length ?= false
+
+# Remove genType restriction to relax API.
+#
+config [bool] config.glm.unrestricted_gentype ?= false
+
+# Force GLM to store quat data as x,y,z,w instead of w,x,y,z.
+#
+config [bool] config.glm.quat_data_xyzw ?= false
+
+# Report the configuration as part of the build log.
+#
+config [bool] config.glm.messages ?= false
+
+# Force GLM to no detect the build platform.
+#
+config [bool] config.glm.platform_unknown ?= false
+
+# Force GLM to no detect the C++ compiler.
+#
+config [bool] config.glm.compiler_unknown ?= false
+
+# Force GLM to no detect the build architecture.
+#
+config [bool] config.glm.arch_unknown ?= false
+
+# Force GLM to no detect the C++ standard.
+#
+config [bool] config.glm.cxx_unknown ?= false
+
+# Restrict the language feature set to the given C++ standard.
+#
+config [uint64] config.glm.cxx ?= [null]
+
+# Silence C++ warnings from language extensions.
+#
+config [bool] config.glm.silent_warnings ?= false
+
+# Inline the `glm::gtc` namespace into the `glm` namespace.
+# Applies only to the `glm` C++ module.
+#
+config [bool] config.glm.gtc_inline_namespace ?= false
+
+# Inline the `glm::ext` namespace into the `glm` namespace.
+# Applies only to the `glm` C++ module.
+#
+config [bool] config.glm.ext_inline_namespace ?= false
+
+# Inline the `glm::gtx` namespace into the `glm` namespace.
+# Applies only to the `glm` C++ module.
+#
+config [bool] config.glm.gtx_inline_namespace ?= false
+
 # C++ Module
 #
 cxx.std = latest
