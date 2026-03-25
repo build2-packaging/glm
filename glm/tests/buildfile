@@ -31,6 +31,10 @@ blacklist = \
 #
 blacklist += core/core_setup_message
 
+# Remove test that randomly fails for optimized Clang configurations.
+#
+blacklist += gtc/gtc_bitfield
+
 # Disable test that runs into compiler errors on Windows.
 #
 blacklist += gtc/gtc_random
