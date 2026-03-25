@@ -1,6 +1,6 @@
 # Main GLM Library Target
 #
-./: lib{glm}: bin.binless = true
+[rule_hint=cxx] lib{glm}:
 
 # Bare Header-Only Library without Configuration Applied
 #
@@ -89,7 +89,11 @@ if $cxx.features.modules
     cxx.poptions += -DGLM_GTX_INLINE_NAMESPACE
 }
 
-lib{glm}: cxx.export.poptions = $poptions
+lib{glm}:
+{
+  cxx.export.poptions = $poptions
+  bin.binless = true
+}
 cxx.poptions += $poptions
 
 # Metadata
